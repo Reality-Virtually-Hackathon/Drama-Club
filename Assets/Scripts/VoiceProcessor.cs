@@ -179,7 +179,7 @@ public class VoiceProcessor : MonoBehaviour {
                     if (res.final)
                     {
                         string toRead = "<speak version=\"1.0\"><express-as type=\"GoodNews\">" + text + "</express-as></speak>";
-                        scriptReader.SetText(text);
+                        scriptReader.SetText(toRead);
                         Runnable.Run(scriptReader.ReadText());
                     }
                 }
