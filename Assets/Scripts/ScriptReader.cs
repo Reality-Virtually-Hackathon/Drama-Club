@@ -203,7 +203,7 @@ public class ScriptReader : MonoBehaviour {
     public IEnumerator GetCustomizationWord()
     {
         Log.Debug("ScriptReader", "Attempting to get the translation of a custom voice model's word.");
-        string customIdentifierWord = wordsToUpdateCustomization[0].word;
+        string customIdentifierWord = "hello";
         if (!_textToSpeech.GetCustomizationWord(OnGetCustomizationWord, _createdCustomizationId, customIdentifierWord))
             Log.Debug("ScriptReader", "Failed to get the translation of {0} from {1}!", customIdentifierWord, _createdCustomizationId);
         while (!_getCustomizationWordTested)
