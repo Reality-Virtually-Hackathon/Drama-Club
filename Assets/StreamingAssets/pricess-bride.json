@@ -1,0 +1,71 @@
+{
+  "lines": [
+    {
+      "speaker": "INIGO",
+      "description": "(gasping)",
+      "line": "I’m sorry father, I tried..."
+    },
+    {
+      "speaker": "COUNT RUGEN",
+      "line": "You must be that Spanish brat I taught a lesson to all those years ago. It’s simply incredible. Have you been chasing me your whole life only to lose now? I think that’s the worst thing I ever heard. How marvelous."
+    },
+    {
+      "speaker": "COUNT RUGEN",
+      "line": "Good heavens, are you still trying to win?"
+    },
+    {
+      "speaker": "COUNT RUGEN",
+      "line": "You’ve got an overdeveloped sense of vengeance. It’s going to et you in trouble someday."
+    },
+    {
+      "speaker": "INIGO",
+      "line": "Hello. My name is Inigo Montoya. You killed my father; prepare to die."
+    },
+    {
+      "speaker": "INIGO",
+      "description": "(louder)",
+      "line": "Hello. My name is Inigo Montoya. You killed my father; prepare to die."
+    },
+    {
+      "speaker": "COUNT RUGEN",
+      "line": "Stop saying that!"
+    },
+    {
+      "speaker": "INIGO",
+      "description": "(with gusto)",
+      "line": "Hello. My name is Inigo Montoya. You killed my father; prepare to die!"
+    },
+    {
+      "speaker": "COUNT RUGEN",
+      "line": "No!"
+    },
+    {
+      "speaker": "INIGO",
+      "line": "Offer me money!"
+    },
+    {
+      "speaker": "COUNT RUGEN",
+      "line": "Yes!"
+    },
+    {
+      "speaker": "INIGO",
+      "line": "Power too! Offer me that!"
+    },
+    {
+      "speaker": "COUNT RUGEN",
+      "line": "All that I have and more. Please!"
+    },
+    {
+      "speaker": "INIGO",
+      "line": "Offer me everything I ask for!"
+    },
+    {
+      "speaker": "COUNT RUGEN",
+      "line": "Anything you want!"
+    },
+    {
+      "speaker": "INIGO",
+      "line": "I want my father back you son of a bitch!"
+    }
+  ]
+}
