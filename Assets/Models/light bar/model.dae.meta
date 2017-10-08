@@ -1,0 +1,621 @@
+fileFormatVersion: 2
+guid: 5e207c5db545145f98b345aab68cf214
+timeCreated: 1507492296
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: globe
+    100002: globe 1
+    100004: globe 2
+    100006: globe 3
+    100008: globe 4
+    100010: globe 5
+    100012: ID105
+    100014: ID105 1
+    100016: ID105 2
+    100018: ID105 3
+    100020: ID105 4
+    100022: ID105 5
+    100024: ID115
+    100026: ID115 1
+    100028: ID115 2
+    100030: ID115 3
+    100032: ID115 4
+    100034: ID115 5
+    100036: ID123
+    100038: ID123 1
+    100040: ID123 2
+    100042: ID123 3
+    100044: ID123 4
+    100046: ID123 5
+    100048: ID131
+    100050: ID131 1
+    100052: ID131 2
+    100054: ID131 3
+    100056: ID131 4
+    100058: ID131 5
+    100060: ID141
+    100062: ID141 1
+    100064: ID141 2
+    100066: ID141 3
+    100068: ID141 4
+    100070: ID141 5
+    100072: ID156
+    100074: ID156 1
+    100076: ID156 2
+    100078: ID156 3
+    100080: ID156 4
+    100082: ID156 5
+    100084: ID160
+    100086: ID160 1
+    100088: ID160 2
+    100090: ID160 3
+    100092: ID160 4
+    100094: ID160 5
+    100096: ID184
+    100098: ID184 1
+    100100: ID184 2
+    100102: ID184 3
+    100104: ID184 4
+    100106: ID184 5
+    100108: ID37
+    100110: ID37 1
+    100112: ID37 2
+    100114: ID37 3
+    100116: ID37 4
+    100118: ID37 5
+    100120: ID47
+    100122: ID47 1
+    100124: ID47 2
+    100126: ID47 3
+    100128: ID47 4
+    100130: ID47 5
+    100132: ID62
+    100134: ID62 1
+    100136: ID62 2
+    100138: ID62 3
+    100140: ID62 4
+    100142: ID62 5
+    100144: ID70
+    100146: ID70 1
+    100148: ID70 2
+    100150: ID70 3
+    100152: ID70 4
+    100154: ID70 5
+    100156: ID80
+    100158: ID80 1
+    100160: ID80 2
+    100162: ID80 3
+    100164: ID80 4
+    100166: ID80 5
+    100168: ID97
+    100170: ID97 1
+    100172: ID97 2
+    100174: ID97 3
+    100176: ID97 4
+    100178: ID97 5
+    100180: IDX_Point_Light
+    100182: IDX_Point_Light 1
+    100184: IDX_Point_Light 2
+    100186: IDX_Point_Light 3
+    100188: IDX_Point_Light 4
+    100190: IDX_Point_Light 5
+    100192: instance_0
+    100194: instance_1
+    100196: instance_10
+    100198: instance_2
+    100200: instance_2 1
+    100202: instance_2 2
+    100204: instance_2 3
+    100206: instance_2 4
+    100208: instance_2 5
+    100210: instance_3
+    100212: instance_3 1
+    100214: instance_3 2
+    100216: instance_3 3
+    100218: instance_3 4
+    100220: instance_3 5
+    100222: instance_4
+    100224: instance_4 1
+    100226: instance_4 2
+    100228: instance_4 3
+    100230: instance_4 4
+    100232: instance_4 5
+    100234: instance_5
+    100236: instance_5 1
+    100238: instance_5 2
+    100240: instance_5 3
+    100242: instance_5 4
+    100244: instance_5 5
+    100246: instance_6
+    100248: instance_7
+    100250: instance_8
+    100252: instance_9
+    100254: //RootNode
+    100256: PAR64
+    100258: PAR64 1
+    100260: PAR64 2
+    100262: PAR64 3
+    100264: PAR64 4
+    100266: PAR64 5
+    100268: Par_Bar
+    100270: ParCanBody
+    100272: ParCanBody 1
+    100274: ParCanBody 2
+    100276: ParCanBody 3
+    100278: ParCanBody 4
+    100280: ParCanBody 5
+    100282: ParCanYoke
+    100284: ParCanYoke 1
+    100286: ParCanYoke 2
+    100288: ParCanYoke 3
+    100290: ParCanYoke 4
+    100292: ParCanYoke 5
+    100294: skp_camera_Last_Saved_SketchUp_View
+    400000: globe
+    400002: globe 1
+    400004: globe 2
+    400006: globe 3
+    400008: globe 4
+    400010: globe 5
+    400012: ID105
+    400014: ID105 1
+    400016: ID105 2
+    400018: ID105 3
+    400020: ID105 4
+    400022: ID105 5
+    400024: ID115
+    400026: ID115 1
+    400028: ID115 2
+    400030: ID115 3
+    400032: ID115 4
+    400034: ID115 5
+    400036: ID123
+    400038: ID123 1
+    400040: ID123 2
+    400042: ID123 3
+    400044: ID123 4
+    400046: ID123 5
+    400048: ID131
+    400050: ID131 1
+    400052: ID131 2
+    400054: ID131 3
+    400056: ID131 4
+    400058: ID131 5
+    400060: ID141
+    400062: ID141 1
+    400064: ID141 2
+    400066: ID141 3
+    400068: ID141 4
+    400070: ID141 5
+    400072: ID156
+    400074: ID156 1
+    400076: ID156 2
+    400078: ID156 3
+    400080: ID156 4
+    400082: ID156 5
+    400084: ID160
+    400086: ID160 1
+    400088: ID160 2
+    400090: ID160 3
+    400092: ID160 4
+    400094: ID160 5
+    400096: ID184
+    400098: ID184 1
+    400100: ID184 2
+    400102: ID184 3
+    400104: ID184 4
+    400106: ID184 5
+    400108: ID37
+    400110: ID37 1
+    400112: ID37 2
+    400114: ID37 3
+    400116: ID37 4
+    400118: ID37 5
+    400120: ID47
+    400122: ID47 1
+    400124: ID47 2
+    400126: ID47 3
+    400128: ID47 4
+    400130: ID47 5
+    400132: ID62
+    400134: ID62 1
+    400136: ID62 2
+    400138: ID62 3
+    400140: ID62 4
+    400142: ID62 5
+    400144: ID70
+    400146: ID70 1
+    400148: ID70 2
+    400150: ID70 3
+    400152: ID70 4
+    400154: ID70 5
+    400156: ID80
+    400158: ID80 1
+    400160: ID80 2
+    400162: ID80 3
+    400164: ID80 4
+    400166: ID80 5
+    400168: ID97
+    400170: ID97 1
+    400172: ID97 2
+    400174: ID97 3
+    400176: ID97 4
+    400178: ID97 5
+    400180: IDX_Point_Light
+    400182: IDX_Point_Light 1
+    400184: IDX_Point_Light 2
+    400186: IDX_Point_Light 3
+    400188: IDX_Point_Light 4
+    400190: IDX_Point_Light 5
+    400192: instance_0
+    400194: instance_1
+    400196: instance_10
+    400198: instance_2
+    400200: instance_2 1
+    400202: instance_2 2
+    400204: instance_2 3
+    400206: instance_2 4
+    400208: instance_2 5
+    400210: instance_3
+    400212: instance_3 1
+    400214: instance_3 2
+    400216: instance_3 3
+    400218: instance_3 4
+    400220: instance_3 5
+    400222: instance_4
+    400224: instance_4 1
+    400226: instance_4 2
+    400228: instance_4 3
+    400230: instance_4 4
+    400232: instance_4 5
+    400234: instance_5
+    400236: instance_5 1
+    400238: instance_5 2
+    400240: instance_5 3
+    400242: instance_5 4
+    400244: instance_5 5
+    400246: instance_6
+    400248: instance_7
+    400250: instance_8
+    400252: instance_9
+    400254: //RootNode
+    400256: PAR64
+    400258: PAR64 1
+    400260: PAR64 2
+    400262: PAR64 3
+    400264: PAR64 4
+    400266: PAR64 5
+    400268: Par_Bar
+    400270: ParCanBody
+    400272: ParCanBody 1
+    400274: ParCanBody 2
+    400276: ParCanBody 3
+    400278: ParCanBody 4
+    400280: ParCanBody 5
+    400282: ParCanYoke
+    400284: ParCanYoke 1
+    400286: ParCanYoke 2
+    400288: ParCanYoke 3
+    400290: ParCanYoke 4
+    400292: ParCanYoke 5
+    400294: skp_camera_Last_Saved_SketchUp_View
+    2000000: skp_camera_Last_Saved_SketchUp_View
+    2300000: globe
+    2300002: globe 1
+    2300004: globe 2
+    2300006: globe 3
+    2300008: globe 4
+    2300010: globe 5
+    2300012: ID105
+    2300014: ID105 1
+    2300016: ID105 2
+    2300018: ID105 3
+    2300020: ID105 4
+    2300022: ID105 5
+    2300024: ID115
+    2300026: ID115 1
+    2300028: ID115 2
+    2300030: ID115 3
+    2300032: ID115 4
+    2300034: ID115 5
+    2300036: ID123
+    2300038: ID123 1
+    2300040: ID123 2
+    2300042: ID123 3
+    2300044: ID123 4
+    2300046: ID123 5
+    2300048: ID131
+    2300050: ID131 1
+    2300052: ID131 2
+    2300054: ID131 3
+    2300056: ID131 4
+    2300058: ID131 5
+    2300060: ID141
+    2300062: ID141 1
+    2300064: ID141 2
+    2300066: ID141 3
+    2300068: ID141 4
+    2300070: ID141 5
+    2300072: ID37
+    2300074: ID37 1
+    2300076: ID37 2
+    2300078: ID37 3
+    2300080: ID37 4
+    2300082: ID37 5
+    2300084: ID47
+    2300086: ID47 1
+    2300088: ID47 2
+    2300090: ID47 3
+    2300092: ID47 4
+    2300094: ID47 5
+    2300096: ID62
+    2300098: ID62 1
+    2300100: ID62 2
+    2300102: ID62 3
+    2300104: ID62 4
+    2300106: ID62 5
+    2300108: ID70
+    2300110: ID70 1
+    2300112: ID70 2
+    2300114: ID70 3
+    2300116: ID70 4
+    2300118: ID70 5
+    2300120: ID80
+    2300122: ID80 1
+    2300124: ID80 2
+    2300126: ID80 3
+    2300128: ID80 4
+    2300130: ID80 5
+    2300132: ID97
+    2300134: ID97 1
+    2300136: ID97 2
+    2300138: ID97 3
+    2300140: ID97 4
+    2300142: ID97 5
+    2300144: PAR64
+    2300146: PAR64 1
+    2300148: PAR64 2
+    2300150: PAR64 3
+    2300152: PAR64 4
+    2300154: PAR64 5
+    2300156: Par_Bar
+    2300158: ParCanBody
+    2300160: ParCanBody 1
+    2300162: ParCanBody 2
+    2300164: ParCanBody 3
+    2300166: ParCanBody 4
+    2300168: ParCanBody 5
+    2300170: ParCanYoke
+    2300172: ParCanYoke 1
+    2300174: ParCanYoke 2
+    2300176: ParCanYoke 3
+    2300178: ParCanYoke 4
+    2300180: ParCanYoke 5
+    3300000: globe
+    3300002: globe 1
+    3300004: globe 2
+    3300006: globe 3
+    3300008: globe 4
+    3300010: globe 5
+    3300012: ID105
+    3300014: ID105 1
+    3300016: ID105 2
+    3300018: ID105 3
+    3300020: ID105 4
+    3300022: ID105 5
+    3300024: ID115
+    3300026: ID115 1
+    3300028: ID115 2
+    3300030: ID115 3
+    3300032: ID115 4
+    3300034: ID115 5
+    3300036: ID123
+    3300038: ID123 1
+    3300040: ID123 2
+    3300042: ID123 3
+    3300044: ID123 4
+    3300046: ID123 5
+    3300048: ID131
+    3300050: ID131 1
+    3300052: ID131 2
+    3300054: ID131 3
+    3300056: ID131 4
+    3300058: ID131 5
+    3300060: ID141
+    3300062: ID141 1
+    3300064: ID141 2
+    3300066: ID141 3
+    3300068: ID141 4
+    3300070: ID141 5
+    3300072: ID37
+    3300074: ID37 1
+    3300076: ID37 2
+    3300078: ID37 3
+    3300080: ID37 4
+    3300082: ID37 5
+    3300084: ID47
+    3300086: ID47 1
+    3300088: ID47 2
+    3300090: ID47 3
+    3300092: ID47 4
+    3300094: ID47 5
+    3300096: ID62
+    3300098: ID62 1
+    3300100: ID62 2
+    3300102: ID62 3
+    3300104: ID62 4
+    3300106: ID62 5
+    3300108: ID70
+    3300110: ID70 1
+    3300112: ID70 2
+    3300114: ID70 3
+    3300116: ID70 4
+    3300118: ID70 5
+    3300120: ID80
+    3300122: ID80 1
+    3300124: ID80 2
+    3300126: ID80 3
+    3300128: ID80 4
+    3300130: ID80 5
+    3300132: ID97
+    3300134: ID97 1
+    3300136: ID97 2
+    3300138: ID97 3
+    3300140: ID97 4
+    3300142: ID97 5
+    3300144: PAR64
+    3300146: PAR64 1
+    3300148: PAR64 2
+    3300150: PAR64 3
+    3300152: PAR64 4
+    3300154: PAR64 5
+    3300156: Par_Bar
+    3300158: ParCanBody
+    3300160: ParCanBody 1
+    3300162: ParCanBody 2
+    3300164: ParCanBody 3
+    3300166: ParCanBody 4
+    3300168: ParCanBody 5
+    3300170: ParCanYoke
+    3300172: ParCanYoke 1
+    3300174: ParCanYoke 2
+    3300176: ParCanYoke 3
+    3300178: ParCanYoke 4
+    3300180: ParCanYoke 5
+    4300000: Par_Bar
+    4300002: PAR64
+    4300004: ParCanBody
+    4300006: ID37
+    4300008: ID47
+    4300010: ID62
+    4300012: ID70
+    4300014: ID80
+    4300016: ID97
+    4300018: ID105
+    4300020: ID115
+    4300022: ID123
+    4300024: ID131
+    4300026: ID141
+    4300028: globe
+    4300030: ParCanYoke
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Aluminium
+    second: {fileID: 2100000, guid: c1bca8508e84f4411a5ac08da350b8ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Aluminium_1
+    second: {fileID: 2100000, guid: 0d7df92ba2c1f4f51b1058c4dd92316e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: __Charcoal_1
+    second: {fileID: 2100000, guid: c29e7c84353f24c7f89fbd19b77f0535, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: __LightGray_
+    second: {fileID: 2100000, guid: 040eca359f44a40cc87a984f2d3b78d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: __Safety_Glass_1
+    second: {fileID: 2100000, guid: 5e9fa73ed366b4e93a739eb3690a9753, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: __Silver_
+    second: {fileID: 2100000, guid: ab5b0e9a70dca406f8257921a542e5b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material
+    second: {fileID: 2100000, guid: de1bc36a333de4607af38b5fe9eaa134, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material_0
+    second: {fileID: 2100000, guid: 51b3156cd4ca64efb8c8cbc15c6c5fc3, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
