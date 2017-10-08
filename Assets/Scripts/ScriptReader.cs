@@ -54,7 +54,7 @@ public class ScriptReader : MonoBehaviour {
     {
         Log.Debug("ScriptReader", "Attempting synthesize");
         _voiceProcessor.Active = false;
-        _textToSpeech.Voice = VoiceType.en_US_Allison;
+        _textToSpeech.Voice = VoiceType.en_US_Michael; //VoiceType.en_US_Allison;
         _textToSpeech.ToSpeech(text, HandleToSpeechCallback, true, null, followupCallback);
         while (!_synthesizeTested)
             yield return null;

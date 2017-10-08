@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
         }
         string lineText = line.line;
         _scriptManager.MoveToNextLine ();
-        string toRead = "<speak version=\"1.0\"><express-as type=\"GoodNews\">" + lineText + "</express-as></speak>";
+        string toRead = lineText; //"<speak version=\"1.0\"><express-as type=\"GoodNews\">" + lineText + "</express-as></speak>";
         _scriptReader.ReadText(toRead, DoneReadingCallback);
     }
 

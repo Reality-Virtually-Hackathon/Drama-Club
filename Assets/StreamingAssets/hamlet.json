@@ -1,4 +1,11 @@
 {
+  "characters": [
+    {
+      "name": "HAMLET",
+      "gender": "male",
+      "voice": "en_US_Michael"
+    }
+  ],
   "lines": [
     {
       "speaker": "HAMLET",

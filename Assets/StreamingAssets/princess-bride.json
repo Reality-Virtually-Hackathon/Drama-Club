@@ -1,4 +1,16 @@
 {
+  "characters": [
+    {
+      "name": "INIGO",
+      "gender": "male",
+      "voice": "en_US_Michael"
+    },
+    {
+      "name": "COUNT RUGEN",
+      "gender": "male",
+      "voice": "en_US_Michael"
+    }
+  ],
   "lines": [
     {
       "speaker": "INIGO",
@@ -7,7 +19,8 @@
     },
     {
       "speaker": "COUNT RUGEN",
-      "line": "You must be that Spanish brat I taught a lesson to all those years ago. It's simply incredible. Have you been chasing me your whole life only to lose now? I think that's the worst thing I ever heard. How marvelous."
+      "line": "You must be that Spanish brat I taught a lesson to all those years ago. It's simply incredible. Have you been chaysing me your whole life only to lose now? I think that's the worst thing I ever heard. How marvelous.",
+      "alt": "You must be that Spanish brat I taught a lesson to all those years ago. It's simply incredible. Have you been chasing me your whole life only to lose now? I think that's the worst thing I ever heard. How marvelous."
     },
     {
       "speaker": "COUNT RUGEN",
