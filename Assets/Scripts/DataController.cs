@@ -7,6 +7,8 @@ public class DataController : MonoBehaviour
 {
     private string credentialsDataFileName = "credentials.json";
 
+    private ScriptManager _scriptManager;
+
     public CredentialData ServiceCredentials;
 
     private void LoadCredentials()
@@ -28,6 +30,8 @@ public class DataController : MonoBehaviour
     void Start ()  
     {
         DontDestroyOnLoad (gameObject);
+
+        _scriptManager = FindObjectOfType<ScriptManager> ();
 
         LoadCredentials ();
 

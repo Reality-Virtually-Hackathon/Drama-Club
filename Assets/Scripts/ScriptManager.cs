@@ -10,12 +10,26 @@ public class ScriptManager : MonoBehaviour {
     private Script _loadedScript;
     private int _activeLine = 0;
 
+    public bool IsActiveScriptLoaded()
+    {
+        if (_loadedScript != null)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public bool AreAllScriptsLoaded()
+    {
+        if (_activeScripts != null)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void LoadScript(int scriptIndex)
     {
-        if (_activeScripts == null)
-        {
-            return;
-        }
         if (scriptIndex < _activeScripts.Length)
         {
             string scriptFilename = _activeScripts [scriptIndex] + ".json";
@@ -84,12 +98,14 @@ public class ScriptManager : MonoBehaviour {
         }
     }
 
-    void Start () {
+    void Start ()
+    {
         DontDestroyOnLoad (gameObject);
         LoadActiveScripts ();
     }
 
-    void Update () {
+    void Update ()
+    {
 
     }
 }

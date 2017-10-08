@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ScriptResponseChecker : MonoBehaviour {
 
+    private GameController _gameController;
     private ScriptManager _scriptManager;
 
     public ResponseAccuracyStats CheckResponse(string playerResponse)
@@ -35,6 +36,7 @@ public class ScriptResponseChecker : MonoBehaviour {
     }
 
     void Start () {
+        _gameController = FindObjectOfType<GameController> ();
         _scriptManager = FindObjectOfType<ScriptManager> ();
     }
 

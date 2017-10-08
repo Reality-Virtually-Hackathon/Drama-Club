@@ -188,7 +188,10 @@ public class VoiceProcessor : MonoBehaviour {
                     Log.Debug("VoiceProcessor", string.Format("{0} ({1}, {2:0.00})\n", text, res.final ? "Final" : "Interim", alt.confidence));
                     if (res.final)
                     {
-                        _afterSpeechCallback (text, alt.confidence);
+                        if (_afterSpeechCallback != null)
+                        {
+                            _afterSpeechCallback (text, alt.confidence);
+                        }
                     }
                 }
 

@@ -7,6 +7,7 @@ using IBM.Watson.DeveloperCloud.Utilities;
 
 public class GameController : MonoBehaviour
 {
+    private DataController _dataController;
     private ScriptManager _scriptManager;
     private ScriptReader _scriptReader;
     private Director _director;
@@ -52,12 +53,11 @@ public class GameController : MonoBehaviour
 
     public void StartGame()
     {
+        Debug.Log ("Game Started!");
         _scriptManager.Reset ();
         _scoreManager.Reset ();
         _voiceProcessor.SetAfterSpeechCallback (AfterSpeechCallback);
-        ScriptLine activeLine = _scriptManager.GetActiveLine ();
         processCurrentLine ();
-
     }
 
     public void AfterSpeechCallback(string text, double confidence)
@@ -83,6 +83,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        _dataController = FindObjectOfType<DataController> ();
         _scriptManager = FindObjectOfType<ScriptManager> ();
         _scriptReader = FindObjectOfType<ScriptReader> ();
         _voiceProcessor = FindObjectOfType<VoiceProcessor> ();
@@ -92,6 +93,8 @@ public class GameController : MonoBehaviour
         _scoreManager = FindObjectOfType<ScoreManager> ();
 
         _scriptManager.LoadScript (SelectedScriptIndex);
+
+        StartGame();
     }
 
     void Update()
