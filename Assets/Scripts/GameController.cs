@@ -7,7 +7,6 @@ using IBM.Watson.DeveloperCloud.Utilities;
 
 public class GameController : MonoBehaviour
 {
-    private DataController _dataController;
     private ScriptManager _scriptManager;
     private ScriptReader _scriptReader;
     private Director _director;
@@ -83,7 +82,6 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        _dataController = FindObjectOfType<DataController> ();
         _scriptManager = FindObjectOfType<ScriptManager> ();
         _scriptReader = FindObjectOfType<ScriptReader> ();
         _voiceProcessor = FindObjectOfType<VoiceProcessor> ();
