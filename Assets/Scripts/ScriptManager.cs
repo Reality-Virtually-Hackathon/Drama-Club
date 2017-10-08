@@ -43,6 +43,11 @@ public class ScriptManager : MonoBehaviour {
         return null;
     }
 
+    public int GetActiveLineNumber()
+    {
+        return _activeLine;
+    }
+
     public bool HasMoreLines()
     {
         if ((_activeLine + 1) < _loadedScript.lines.Length)
@@ -55,6 +60,11 @@ public class ScriptManager : MonoBehaviour {
     public void MoveToNextLine()
     {
         _activeLine += 1;
+    }
+
+    public void Reset()
+    {
+        _activeLine = 0;
     }
 
     private void LoadActiveScripts()

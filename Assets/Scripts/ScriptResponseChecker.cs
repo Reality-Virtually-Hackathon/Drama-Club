@@ -17,20 +17,20 @@ public class ScriptResponseChecker : MonoBehaviour {
         // TODO: handle special characters
         string[] activeWords = expected.Split ();
         string[] playerWords = playerResponse.Split ();
-        int numCorrect = 0;
-        int numExpectedWords = activeWords.Length;
-        for (int i = 0; i < numExpectedWords && i < playerWords.Length; i++)
+        int numWordsCorrect = 0;
+        int numWordsExpected = activeWords.Length;
+        for (int i = 0; i < numWordsExpected && i < playerWords.Length; i++)
         {
             // TODO: perform better and more forgiving checking versus exact match, in order
             Debug.Log("comparing: (" + activeWords[i] + ") and (" + playerWords[i] + ")");
             if (activeWords[i].Equals(playerWords[i], StringComparison.OrdinalIgnoreCase))
             {
-                numCorrect++;
+                numWordsCorrect++;
             }
         }
         ResponseAccuracyStats stats = new ResponseAccuracyStats();
-        stats.NumCorrect = numCorrect;
-        stats.NumExpected = numExpectedWords;
+        stats.NumWordsCorrect = numWordsCorrect;
+        stats.NumWordsExpected = numWordsExpected;
         return stats;
     }
 

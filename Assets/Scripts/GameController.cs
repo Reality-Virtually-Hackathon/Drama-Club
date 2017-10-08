@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     private VoiceProcessor _voiceProcessor;
     private Player _player;
     private ScriptResponseChecker _responseChecker;
+    private ScoreManager _scoreManager;
 
     public int SelectedScriptIndex = 0;
 
@@ -51,8 +52,12 @@ public class GameController : MonoBehaviour
 
     public void StartGame()
     {
+        _scriptManager.Reset ();
+        _scoreManager.Reset ();
+        _voiceProcessor.SetAfterSpeechCallback (AfterSpeechCallback);
         ScriptLine activeLine = _scriptManager.GetActiveLine ();
         processCurrentLine ();
+
     }
 
     public void AfterSpeechCallback(string text, double confidence)
@@ -65,7 +70,10 @@ public class GameController : MonoBehaviour
             return;
         }
         ResponseAccuracyStats stats = _responseChecker.CheckResponse (text);
-        Debug.Log("numCorrect: " + stats.NumCorrect + " numExpected: " + stats.NumExpected);
+        int lineNum = _scriptManager.GetActiveLineNumber ();
+        _scoreManager.UpdateStats (lineNum, stats);
+        Debug.Log("numCorrect: " + stats.NumWordsCorrect + " numExpected: " + stats.NumWordsExpected);
+        Debug.Log ("Overall Score: " + _scoreManager.GetOverallScore ());
         _scriptManager.MoveToNextLine ();
         if (_scriptManager.HasMoreLines ())
         {
@@ -81,9 +89,9 @@ public class GameController : MonoBehaviour
         _director = FindObjectOfType<Director> ();
         _player = FindObjectOfType<Player> ();
         _responseChecker = FindObjectOfType<ScriptResponseChecker> ();
+        _scoreManager = FindObjectOfType<ScoreManager> ();
 
         _scriptManager.LoadScript (SelectedScriptIndex);
-        _voiceProcessor.SetAfterSpeechCallback (AfterSpeechCallback);
     }
 
     void Update()
