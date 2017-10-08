@@ -28,7 +28,7 @@ public class ScriptReader : MonoBehaviour {
     private bool _getCustomizationWordTested = false;
 
     private DataController dataController;
-    private ScriptReader scriptReader;
+    private VoiceProcessor voiceProcessor;
 
     private string _toReadText;
 
@@ -37,7 +37,7 @@ public class ScriptReader : MonoBehaviour {
         LogSystem.InstallDefaultReactors();
 
         dataController = FindObjectOfType<DataController> ();
-        scriptReader = FindObjectOfType<ScriptReader> ();
+        voiceProcessor = FindObjectOfType<VoiceProcessor> ();
 
         CredentialData serviceCredentials = dataController.GetServiceCredentials ();
         ServiceCredential textToSpeechCredential = serviceCredentials.textToSpeechCredential;
@@ -54,7 +54,8 @@ public class ScriptReader : MonoBehaviour {
 
     public IEnumerator ReadText()
     {
-        Log.Debug("ScriptReader", "Attempting synthesize.");
+        Log.Debug("ScriptReader", "Attempting synthesize");
+        voiceProcessor.Active = false;
         _textToSpeech.Voice = VoiceType.en_US_Allison;
         _textToSpeech.ToSpeech(_toReadText, HandleToSpeechCallback, true);
         while (!_synthesizeTested)
@@ -247,9 +248,16 @@ public class ScriptReader : MonoBehaviour {
             source.Play();
 
             Destroy(audioObject, clip.length);
+            StartCoroutine(WaitForAudioFinishedCallback(clip.length));
 
             _synthesizeTested = true;
         }
+    }
+
+    private IEnumerator WaitForAudioFinishedCallback(float time)
+    {
+        yield return new WaitForSeconds(time);
+        voiceProcessor.Active = true;
     }
 
     private void OnGetVoices(Voices voices, string customData)
