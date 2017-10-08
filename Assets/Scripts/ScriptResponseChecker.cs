@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
@@ -14,18 +15,23 @@ public class ScriptResponseChecker : MonoBehaviour {
         ScriptLine activeLine = _scriptManager.GetActiveLine ();
         Regex pattern = new Regex("[;,!.]");
         string expected = pattern.Replace(activeLine.line, "");
-        Debug.Log ("checking (" + playerResponse + ") vs. expected (" + expected + ")");
+        Debug.Log ("---- checking (" + playerResponse + ") vs. expected (" + expected + ")");
         // TODO: handle special characters
-        string[] activeWords = expected.Split ();
-        string[] playerWords = playerResponse.Split ();
+        
+		string[] activeWords = expected.Split ();
+		activeWords = activeWords.Select(s => s.ToLowerInvariant()).ToArray();
+		HashSet<String> activeWordsSet = new HashSet<String> (activeWords);
+        
+		string[] playerWords = playerResponse.Split ();
+		playerWords = playerWords.Select(s => s.ToLowerInvariant()).ToArray();
+
         int numWordsCorrect = 0;
         int numWordsExpected = activeWords.Length;
-        for (int i = 0; i < numWordsExpected && i < playerWords.Length; i++)
+
+		for (int i = 0; i < playerWords.Length; i++)
         {
-            // TODO: perform better and more forgiving checking versus exact match, in order
-            Debug.Log("comparing: (" + activeWords[i] + ") and (" + playerWords[i] + ")");
-            if (activeWords[i].Equals(playerWords[i], StringComparison.OrdinalIgnoreCase))
-            {
+			if (activeWordsSet.Contains(playerWords[i]))
+			{
                 numWordsCorrect++;
             }
         }

@@ -16,11 +16,50 @@ public class ScoreManager : MonoBehaviour {
         _score.OverallScore = 0;
     }
 
+	public int passOrFailLimit(int numWords) {
+		if (numWords <= 2) {
+			return 0;
+		} 
+		else if (numWords <= 3) {
+			return 1;
+		}
+		else if (numWords <= 5) {
+			return 2;
+		}
+		else if (numWords <= 7) {
+			return 3;
+		}
+		else if (numWords <= 10) {
+			return 4;
+		}
+		else if (numWords <= 15) {
+			return 5;
+		}
+		else if (numWords <= 20) {
+			return 6;
+		}
+		else if (numWords <= 30) {
+			return 8;
+		}
+		else if (numWords <= 40) {
+			return 9;
+		}
+		else {
+			return 10;
+		}
+	}
+
+
     public void UpdateStats(int lineNum, ResponseAccuracyStats lineStats)
     {
         _score.LastLineNum = lineNum;
-        // TODO: update, only for testing
-        if (lineStats.NumWordsCorrect > 0)
+
+		int missedWords = lineStats.NumWordsExpected - lineStats.NumWordsCorrect;
+
+
+		int currentMissedWordLimit = passOrFailLimit (lineStats.NumWordsExpected);
+		Debug.Log("missedWordLimit: " + currentMissedWordLimit);
+		if (missedWords <= currentMissedWordLimit)
         {
             _score.NumLinesCorrect++;
         }
@@ -40,6 +79,11 @@ public class ScoreManager : MonoBehaviour {
     {
         return _score.OverallScore;
     }
+
+	public int GetNumLinesMissed()
+	{
+		return _score.TotalLines - _score.NumLinesCorrect;
+	}
 
     void Start ()
     {

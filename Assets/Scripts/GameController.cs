@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour
         int lineNum = _scriptManager.GetActiveLineNumber ();
         _scoreManager.UpdateStats (lineNum, stats);
         Debug.Log("numCorrect: " + stats.NumWordsCorrect + " numExpected: " + stats.NumWordsExpected);
-        Debug.Log ("Overall Score: " + _scoreManager.GetOverallScore ());
+		Debug.Log ("Overall Score: " + _scoreManager.GetOverallScore () + " Missed Lines: " + _scoreManager.GetNumLinesMissed());
         _scriptManager.MoveToNextLine ();
         if (_scriptManager.HasMoreLines ())
         {
