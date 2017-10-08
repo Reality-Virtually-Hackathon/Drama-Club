@@ -7,7 +7,7 @@ public class DataController : MonoBehaviour
 {
     private string credentialsDataFileName = "credentials.json";
 
-    public CredentialData serviceCredentials;
+    public CredentialData ServiceCredentials;
 
     private void LoadCredentials()
     {
@@ -17,7 +17,7 @@ public class DataController : MonoBehaviour
         {
             string dataAsJson = File.ReadAllText (filePath);
 
-            serviceCredentials = JsonUtility.FromJson<CredentialData> (dataAsJson);
+            ServiceCredentials = JsonUtility.FromJson<CredentialData> (dataAsJson);
         }
         else
         {
@@ -36,6 +36,6 @@ public class DataController : MonoBehaviour
 
     public CredentialData GetServiceCredentials()
     {
-        return serviceCredentials;
+        return ServiceCredentials;
     }
 }

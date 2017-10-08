@@ -27,17 +27,17 @@ public class ScriptReader : MonoBehaviour {
     private bool _deleteCustomizationWordTested = false;
     private bool _getCustomizationWordTested = false;
 
-    private DataController dataController;
-    private VoiceProcessor voiceProcessor;
+    private DataController _dataController;
+    private VoiceProcessor _voiceProcessor;
 
     void Start()
     {
         LogSystem.InstallDefaultReactors();
 
-        dataController = FindObjectOfType<DataController> ();
-        voiceProcessor = FindObjectOfType<VoiceProcessor> ();
+        _dataController = FindObjectOfType<DataController> ();
+        _voiceProcessor = FindObjectOfType<VoiceProcessor> ();
 
-        CredentialData serviceCredentials = dataController.GetServiceCredentials ();
+        CredentialData serviceCredentials = _dataController.GetServiceCredentials ();
         ServiceCredential textToSpeechCredential = serviceCredentials.textToSpeechCredential;
 
         Credentials credentials = new Credentials(textToSpeechCredential.username, textToSpeechCredential.password, textToSpeechCredential.url);
@@ -53,7 +53,7 @@ public class ScriptReader : MonoBehaviour {
     private IEnumerator StartTextSynthesis(string text, TextToSpeech.AudioFinishedCallback followupCallback)
     {
         Log.Debug("ScriptReader", "Attempting synthesize");
-        voiceProcessor.Active = false;
+        _voiceProcessor.Active = false;
         _textToSpeech.Voice = VoiceType.en_US_Allison;
         _textToSpeech.ToSpeech(text, HandleToSpeechCallback, true, null, followupCallback);
         while (!_synthesizeTested)
@@ -255,7 +255,7 @@ public class ScriptReader : MonoBehaviour {
     private IEnumerator WaitForAudioFinishedCallback(float time, TextToSpeech.AudioFinishedCallback followupCallback)
     {
         yield return new WaitForSeconds(time);
-        voiceProcessor.Active = true;
+        _voiceProcessor.Active = true;
         if (followupCallback != null)
         {
             followupCallback ();

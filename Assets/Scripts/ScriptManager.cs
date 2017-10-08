@@ -5,27 +5,27 @@ using System.IO;
 
 public class ScriptManager : MonoBehaviour {
 
-    private string activeScriptsFile = "active-scripts.json";
-    private string[] activeScripts;
-    private Script loadedScript;
-    private int activeLine = 0;
+    private string _activeScriptsFile = "active-scripts.json";
+    private string[] _activeScripts;
+    private Script _loadedScript;
+    private int _activeLine = 0;
 
     public void LoadScript(int scriptIndex)
     {
-        if (activeScripts == null)
+        if (_activeScripts == null)
         {
             return;
         }
-        if (scriptIndex < activeScripts.Length)
+        if (scriptIndex < _activeScripts.Length)
         {
-            string scriptFilename = activeScripts [scriptIndex] + ".json";
+            string scriptFilename = _activeScripts [scriptIndex] + ".json";
             string filePath = Path.Combine (Application.streamingAssetsPath, scriptFilename);
 
             if(File.Exists(filePath))
             {
                 string dataAsJson = File.ReadAllText (filePath);
 
-                loadedScript = JsonUtility.FromJson<Script> (dataAsJson);
+                _loadedScript = JsonUtility.FromJson<Script> (dataAsJson);
             }
             else
             {
@@ -34,18 +34,18 @@ public class ScriptManager : MonoBehaviour {
         }
     }
 
-    public string GetActiveLineText()
+    public ScriptLine GetActiveLine()
     {
-        if (activeLine < loadedScript.lines.Length)
+        if (_activeLine < _loadedScript.lines.Length)
         {
-            return loadedScript.lines [activeLine].line;
+            return _loadedScript.lines [_activeLine];
         }
         return null;
     }
 
     public bool HasMoreLines()
     {
-        if ((activeLine + 1) < loadedScript.lines.Length)
+        if ((_activeLine + 1) < _loadedScript.lines.Length)
         {
             return true;
         }
@@ -54,19 +54,19 @@ public class ScriptManager : MonoBehaviour {
 
     public void MoveToNextLine()
     {
-        activeLine += 1;
+        _activeLine += 1;
     }
 
     private void LoadActiveScripts()
     {
-        string filePath = Path.Combine (Application.streamingAssetsPath, activeScriptsFile);
+        string filePath = Path.Combine (Application.streamingAssetsPath, _activeScriptsFile);
 
         if(File.Exists(filePath))
         {
             string dataAsJson = File.ReadAllText (filePath);
 
             ActiveScripts activeScriptParent = JsonUtility.FromJson<ActiveScripts> (dataAsJson);
-            activeScripts = activeScriptParent.activeScripts;
+            _activeScripts = activeScriptParent.activeScripts;
         }
         else
         {
@@ -77,7 +77,6 @@ public class ScriptManager : MonoBehaviour {
     void Start () {
         DontDestroyOnLoad (gameObject);
         LoadActiveScripts ();
-        LoadScript (0);
     }
 
     void Update () {

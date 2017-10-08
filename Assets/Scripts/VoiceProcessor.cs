@@ -30,25 +30,35 @@ public class VoiceProcessor : MonoBehaviour {
     private int _recordingBufferSize = 2;
     private int _recordingHZ = 22050;
 
-    private DataController dataController;
-    private ScriptReader scriptReader;
+    private DataController _dataController;
+    private ScriptReader _scriptReader;
 
     private SpeechToText _speechToText;
+
+    public delegate void SpeechFragmentDetectedCallback(string text, double confidence);
+
+    private SpeechFragmentDetectedCallback _afterSpeechCallback;
+
+    public void SetAfterSpeechCallback(SpeechFragmentDetectedCallback callback)
+    {
+        _afterSpeechCallback = callback;
+    }
 
     void Start()
     {
         LogSystem.InstallDefaultReactors();
 
-        dataController = FindObjectOfType<DataController> ();
-        scriptReader = FindObjectOfType<ScriptReader> ();
+        _dataController = FindObjectOfType<DataController> ();
+        _scriptReader = FindObjectOfType<ScriptReader> ();
 
-        CredentialData serviceCredentials = dataController.GetServiceCredentials ();
+        CredentialData serviceCredentials = _dataController.GetServiceCredentials ();
         ServiceCredential speechToTextCredential = serviceCredentials.speechToTextCredential;
 
         //  Create credential and instantiate service
         Credentials credentials = new Credentials(speechToTextCredential.username, speechToTextCredential.password, speechToTextCredential.url);
 
         _speechToText = new SpeechToText(credentials);
+        _speechToText.ProfanityFilter = false;
         Active = true;
 
         StartRecording();
@@ -176,12 +186,10 @@ public class VoiceProcessor : MonoBehaviour {
                 {
                     string text = alt.transcript;
                     Log.Debug("VoiceProcessor", string.Format("{0} ({1}, {2:0.00})\n", text, res.final ? "Final" : "Interim", alt.confidence));
-//                    if (res.final)
-//                    {
-//                        string toRead = "<speak version=\"1.0\"><express-as type=\"GoodNews\">" + text + "</express-as></speak>";
-//                        scriptReader.SetText(toRead);
-//                        Runnable.Run(scriptReader.ReadText());
-//                    }
+                    if (res.final)
+                    {
+                        _afterSpeechCallback (text, alt.confidence);
+                    }
                 }
 
                 if (res.keywords_result != null && res.keywords_result.keyword != null)
