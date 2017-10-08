@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
-using System.IO;
 
 public class MenuScreenController : MonoBehaviour
 {
@@ -12,6 +9,6 @@ public class MenuScreenController : MonoBehaviour
 
     void Start()
     {
-        SceneManager.LoadScene ("Game");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
     }
 }
