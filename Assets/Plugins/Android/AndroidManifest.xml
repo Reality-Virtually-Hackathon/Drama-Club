@@ -50,6 +50,7 @@
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.CAMERA" />
   <uses-permission android:name="android.permission.RECORD_AUDIO" />
+  <uses-permission android:name="android.permission.MICROPHONE" />
 
   <uses-feature android:glEsVersion="0x00020000" />
   <uses-feature android:name="android.hardware.camera" android:required="false" />

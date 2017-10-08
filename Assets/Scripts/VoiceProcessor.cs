@@ -22,13 +22,14 @@ using IBM.Watson.DeveloperCloud.Services.SpeechToText.v1;
 using IBM.Watson.DeveloperCloud.Utilities;
 using IBM.Watson.DeveloperCloud.DataTypes;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class VoiceProcessor : MonoBehaviour {
     private int _recordingRoutine = 0;
-    private string _microphoneID = null;
+    private string _microphoneID = "Android audio input";
     private AudioClip _recording = null;
     private int _recordingBufferSize = 2;
-    private int _recordingHZ = 22050;
+    private int _recordingHZ = 41000; //22050;
 
     private DataController _dataController;
     private ScriptReader _scriptReader;
@@ -39,6 +40,9 @@ public class VoiceProcessor : MonoBehaviour {
 
     private SpeechFragmentDetectedCallback _afterSpeechCallback;
 
+    private Text debugTxt;
+    private TextMesh debugTxtMesh;
+
     public void SetAfterSpeechCallback(SpeechFragmentDetectedCallback callback)
     {
         _afterSpeechCallback = callback;
@@ -47,6 +51,16 @@ public class VoiceProcessor : MonoBehaviour {
     void Start()
     {
         LogSystem.InstallDefaultReactors();
+
+//        debugTxt = FindObjectOfType<Text> ();
+//        debugTxt.text = "foo ";
+//        debugTxtMesh = FindObjectOfType<TextMesh> ();
+//        debugTxtMesh.text = "foo2";
+//        for(int i = 0; i < Microphone.devices.Length; i++)
+//        {
+//            debugTxt.text += "(" + Microphone.devices [i] + ")";
+//            debugTxtMesh.text += "(" + Microphone.devices [i] + ")";
+//        }
 
         _dataController = FindObjectOfType<DataController> ();
         _scriptReader = FindObjectOfType<ScriptReader> ();
@@ -121,6 +135,7 @@ public class VoiceProcessor : MonoBehaviour {
     private IEnumerator RecordingHandler()
     {
         Log.Debug("VoiceProcessor", "devices: {0}", Microphone.devices);
+
         _recording = Microphone.Start(_microphoneID, true, _recordingBufferSize, _recordingHZ);
         yield return null;      // let _recordingRoutine get set..
 
