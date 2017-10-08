@@ -29,7 +29,7 @@ public class VoiceProcessor : MonoBehaviour {
     private string _microphoneID = "Android audio input";
     private AudioClip _recording = null;
     private int _recordingBufferSize = 2;
-    private int _recordingHZ = 41000; //22050;
+    private int _recordingHZ = 16000; // 22050;
 
     private DataController _dataController;
     private ScriptReader _scriptReader;
@@ -40,8 +40,8 @@ public class VoiceProcessor : MonoBehaviour {
 
     private SpeechFragmentDetectedCallback _afterSpeechCallback;
 
-    private Text debugTxt;
-    private TextMesh debugTxtMesh;
+//    private Text debugTxt;
+//    private TextMesh debugTxtMesh;
 
     public void SetAfterSpeechCallback(SpeechFragmentDetectedCallback callback)
     {
@@ -52,14 +52,19 @@ public class VoiceProcessor : MonoBehaviour {
     {
         LogSystem.InstallDefaultReactors();
 
+        int min = 0;
+        int max = 0;
+        Microphone.GetDeviceCaps(Microphone.devices[0], out min, out max);
+
 //        debugTxt = FindObjectOfType<Text> ();
 //        debugTxt.text = "foo ";
 //        debugTxtMesh = FindObjectOfType<TextMesh> ();
 //        debugTxtMesh.text = "foo2";
 //        for(int i = 0; i < Microphone.devices.Length; i++)
 //        {
-//            debugTxt.text += "(" + Microphone.devices [i] + ")";
-//            debugTxtMesh.text += "(" + Microphone.devices [i] + ")";
+////            debugTxt.text += "(" + Microphone.devices [i] + ")";
+////            debugTxtMesh.text += "(" + Microphone.devices [i] + ")";
+//            debugTxtMesh.text += "(" + min + "," + max + ")";
 //        }
 
         _dataController = FindObjectOfType<DataController> ();
@@ -136,11 +141,13 @@ public class VoiceProcessor : MonoBehaviour {
     {
         Log.Debug("VoiceProcessor", "devices: {0}", Microphone.devices);
 
+//        debugTxtMesh.text = "Start recording";
         _recording = Microphone.Start(_microphoneID, true, _recordingBufferSize, _recordingHZ);
         yield return null;      // let _recordingRoutine get set..
 
         if (_recording == null)
         {
+//            debugTxtMesh.text = "Stop recording";
             StopRecording();
             yield break;
         }
