@@ -30,8 +30,6 @@ public class ScriptReader : MonoBehaviour {
     private DataController dataController;
     private VoiceProcessor voiceProcessor;
 
-    private string _toReadText;
-
     void Start()
     {
         LogSystem.InstallDefaultReactors();
@@ -47,26 +45,26 @@ public class ScriptReader : MonoBehaviour {
         _textToSpeech = new TextToSpeech(credentials);
     }
 
-    public void SetText(string text)
+    public void ReadText(string text, TextToSpeech.AudioFinishedCallback followupCallback)
     {
-        _toReadText = text;
+        StartCoroutine(StartTextSynthesis (text, followupCallback));
     }
 
-    public IEnumerator ReadText()
+    private IEnumerator StartTextSynthesis(string text, TextToSpeech.AudioFinishedCallback followupCallback)
     {
         Log.Debug("ScriptReader", "Attempting synthesize");
         voiceProcessor.Active = false;
         _textToSpeech.Voice = VoiceType.en_US_Allison;
-        _textToSpeech.ToSpeech(_toReadText, HandleToSpeechCallback, true);
+        _textToSpeech.ToSpeech(text, HandleToSpeechCallback, true, null, followupCallback);
         while (!_synthesizeTested)
             yield return null;
     }
 
-    public IEnumerator Synthesize()
+    public IEnumerator Synthesize(string text)
     {
         Log.Debug("ScriptReader", "Attempting synthesize.");
         _textToSpeech.Voice = VoiceType.en_US_Allison;
-        _textToSpeech.ToSpeech(_toReadText, HandleToSpeechCallback, true);
+        _textToSpeech.ToSpeech(text, HandleToSpeechCallback, true);
         while (!_synthesizeTested)
             yield return null;
     }
@@ -231,12 +229,12 @@ public class ScriptReader : MonoBehaviour {
     }
 
 
-    void HandleToSpeechCallback(AudioClip clip, string customData)
+    void HandleToSpeechCallback(AudioClip clip, string customData, TextToSpeech.AudioFinishedCallback followupCallback)
     {
-        PlayClip(clip);
+        PlayClip(clip, followupCallback);
     }
-
-    private void PlayClip(AudioClip clip)
+        
+    private void PlayClip(AudioClip clip, TextToSpeech.AudioFinishedCallback followupCallback)
     {
         if (Application.isPlaying && clip != null)
         {
@@ -248,16 +246,20 @@ public class ScriptReader : MonoBehaviour {
             source.Play();
 
             Destroy(audioObject, clip.length);
-            StartCoroutine(WaitForAudioFinishedCallback(clip.length));
+            StartCoroutine(WaitForAudioFinishedCallback(clip.length, followupCallback));
 
             _synthesizeTested = true;
         }
     }
 
-    private IEnumerator WaitForAudioFinishedCallback(float time)
+    private IEnumerator WaitForAudioFinishedCallback(float time, TextToSpeech.AudioFinishedCallback followupCallback)
     {
         yield return new WaitForSeconds(time);
         voiceProcessor.Active = true;
+        if (followupCallback != null)
+        {
+            followupCallback ();
+        }
     }
 
     private void OnGetVoices(Voices voices, string customData)

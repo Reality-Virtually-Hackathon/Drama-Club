@@ -274,11 +274,12 @@ namespace IBM.Watson.DeveloperCloud.Services.TextToSpeech.v1
         #endregion
 
         #region Synthesize Functions
+        public delegate void AudioFinishedCallback();
         /// <summary>
         /// This callback is passed into the ToSpeech() method.
         /// </summary>
         /// <param name="clip">The AudioClip containing the audio to play.</param>
-        public delegate void ToSpeechCallback(AudioClip clip, string customData);
+        public delegate void ToSpeechCallback(AudioClip clip, string customData, AudioFinishedCallback followupCallback);
         /// <summary>
         /// Private Request object that holds data specific to the ToSpeech request.
         /// </summary>
@@ -288,6 +289,7 @@ namespace IBM.Watson.DeveloperCloud.Services.TextToSpeech.v1
             public string Text { get; set; }
             public ToSpeechCallback Callback { get; set; }
             public string Data { get; set; }
+            public AudioFinishedCallback FollowupCallback { get; set; }
         }
 
         /// <summary>
@@ -297,7 +299,8 @@ namespace IBM.Watson.DeveloperCloud.Services.TextToSpeech.v1
         /// <param name="callback">The callback to invoke with the AudioClip.</param>
         /// <param name="usePost">If true, then we use post instead of get, this allows for text that exceeds the 5k limit.</param>
         /// <returns>Returns true if the request is sent.</returns>
-        public bool ToSpeech(string text, ToSpeechCallback callback, bool usePost = false, string customData = default(string))
+        public bool ToSpeech(string text, ToSpeechCallback callback, bool usePost = false, string customData = default(string), 
+            AudioFinishedCallback followupCallback = null)
         {
             if (string.IsNullOrEmpty(text))
                 throw new ArgumentNullException("text");
@@ -331,6 +334,7 @@ namespace IBM.Watson.DeveloperCloud.Services.TextToSpeech.v1
             req.Parameters["accept"] = _audioFormats[_audioFormat];
             req.Parameters["voice"] = _voiceTypes[_voice];
             req.OnResponse = ToSpeechResponse;
+            req.FollowupCallback = followupCallback;
 
             if (usePost)
             {
@@ -361,7 +365,7 @@ namespace IBM.Watson.DeveloperCloud.Services.TextToSpeech.v1
                 Log.Error("TextToSpeech", "Request Failed: {0}", resp.Error);
 
             if (speechReq.Callback != null)
-                speechReq.Callback(clip, speechReq.Data);
+                speechReq.Callback(clip, speechReq.Data, speechReq.FollowupCallback);
         }
 
         private AudioClip ProcessResponse(string textId, byte[] data)

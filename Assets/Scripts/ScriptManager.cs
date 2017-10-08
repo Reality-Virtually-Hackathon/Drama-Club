@@ -8,6 +8,7 @@ public class ScriptManager : MonoBehaviour {
     private string activeScriptsFile = "active-scripts.json";
     private string[] activeScripts;
     private Script loadedScript;
+    private int activeLine = 0;
 
     public void LoadScript(int scriptIndex)
     {
@@ -31,6 +32,29 @@ public class ScriptManager : MonoBehaviour {
                 Debug.LogError ("Cannot load credential data");
             } 
         }
+    }
+
+    public string GetActiveLineText()
+    {
+        if (activeLine < loadedScript.lines.Length)
+        {
+            return loadedScript.lines [activeLine].line;
+        }
+        return null;
+    }
+
+    public bool HasMoreLines()
+    {
+        if ((activeLine + 1) < loadedScript.lines.Length)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void MoveToNextLine()
+    {
+        activeLine += 1;
     }
 
     private void LoadActiveScripts()

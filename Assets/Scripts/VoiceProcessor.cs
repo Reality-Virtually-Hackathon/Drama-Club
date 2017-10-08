@@ -176,12 +176,12 @@ public class VoiceProcessor : MonoBehaviour {
                 {
                     string text = alt.transcript;
                     Log.Debug("VoiceProcessor", string.Format("{0} ({1}, {2:0.00})\n", text, res.final ? "Final" : "Interim", alt.confidence));
-                    if (res.final)
-                    {
-                        string toRead = "<speak version=\"1.0\"><express-as type=\"GoodNews\">" + text + "</express-as></speak>";
-                        scriptReader.SetText(toRead);
-                        Runnable.Run(scriptReader.ReadText());
-                    }
+//                    if (res.final)
+//                    {
+//                        string toRead = "<speak version=\"1.0\"><express-as type=\"GoodNews\">" + text + "</express-as></speak>";
+//                        scriptReader.SetText(toRead);
+//                        Runnable.Run(scriptReader.ReadText());
+//                    }
                 }
 
                 if (res.keywords_result != null && res.keywords_result.keyword != null)

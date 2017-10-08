@@ -63,12 +63,16 @@ public class ExampleTextToSpeech : MonoBehaviour
         Runnable.Run(Examples());
     }
 
+    public void DoneReadingCallback()
+    {
+    }
+
     private IEnumerator Examples()
     {
         //  Synthesize
         Log.Debug("ExampleTextToSpeech", "Attempting synthesize.");
         _textToSpeech.Voice = VoiceType.en_US_Allison;
-        _textToSpeech.ToSpeech(_testString, HandleToSpeechCallback, true);
+        _textToSpeech.ToSpeech(_testString, HandleToSpeechCallback, true, null, null);
         while (!_synthesizeTested)
             yield return null;
 
@@ -206,7 +210,7 @@ public class ExampleTextToSpeech : MonoBehaviour
         Log.Debug("ExampleTextToSpeech", "Text to Speech examples complete.");
     }
 
-    void HandleToSpeechCallback(AudioClip clip, string customData)
+    void HandleToSpeechCallback(AudioClip clip, string customData, TextToSpeech.AudioFinishedCallback followupCallback)
     {
         PlayClip(clip);
     }
